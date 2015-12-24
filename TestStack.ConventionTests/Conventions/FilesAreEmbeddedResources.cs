@@ -1,4 +1,5 @@
-﻿namespace TestStack.ConventionTests.Conventions
+﻿#if !DOTNET
+namespace TestStack.ConventionTests.Conventions
 {
     using System.Linq;
     using TestStack.ConventionTests.ConventionData;
@@ -22,3 +23,4 @@
         public string ConventionReason { get { return "Many files are added as 'Content' to visual studio projects, this convention enforces files with an extension are correctly set as Embedded Resources"; } }
     }
 }
+#endif

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using TestAssembly.Collections;
     using TestStack.ConventionTests.ConventionData;
 
@@ -15,14 +16,14 @@
             ConventionTitle = "well, does the header apply here all across the board? How would that work for CSV?";
             var types = data.TypesToVerify;
             var collectionToItemLookup = from collection in types
-                where collection.IsClass
+                where collection.GetTypeInfo().IsClass
                 orderby collection.FullName
                 from item in GetItemTypes(collection)
                 select new
                 {
                     collection,
                     item,
-                    can_add = typeof (ICanAdd<>).MakeGenericType(item).IsAssignableFrom(collection),
+                    can_add = typeof (ICanAdd<>).MakeGenericType(item).GetTypeInfo().IsAssignableFrom(collection),
                     can_remove = typeof (ICanRemove<>).MakeGenericType(item).IsAssignableFrom(collection)
                 };
 

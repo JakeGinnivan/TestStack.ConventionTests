@@ -1,4 +1,5 @@
-﻿namespace TestStack.ConventionTests.Conventions
+﻿#if !DOTNET
+namespace TestStack.ConventionTests.Conventions
 {
     using System;
     using System.Collections.Generic;
@@ -51,3 +52,4 @@
         }
     }
 }
+#endif

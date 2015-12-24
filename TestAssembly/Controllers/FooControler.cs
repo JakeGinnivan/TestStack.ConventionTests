@@ -1,4 +1,5 @@
-﻿namespace TestAssembly.Controllers
+﻿#if NET40
+namespace TestAssembly.Controllers
 {
     using System.Web.Mvc;
 
@@ -7,3 +8,4 @@
          
     }
 }
+#endif

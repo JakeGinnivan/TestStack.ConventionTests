@@ -1,0 +1,44 @@
+﻿{
+    "version": "1.0.0-*",
+    "description": "TestStack.ConventionTests",
+    "authors": [ "Jake" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+    "supports": {
+        "net46.app": { },
+        "uwp.10.0.app": { },
+        "dnxcore50.app": { }
+    },
+    "frameworks": {
+        "net4": {
+            "compilationOptions": {
+                "define": [ ]
+            },
+            "frameworkAssemblies": {
+                "System": "",
+                "System.Xml": "",
+                "System.Xml.Linq": "",
+                "System.Web": ""
+            },
+            "dependencies": {
+                "Mono.Cecil": "0.9.6.1",
+                "ApprovalUtilities": "3.0.10",
+                "ApprovalTests": "3.0.10"
+            }
+        },
+        "dotnet": {
+            "compilationOptions": {
+                "define": [ "LIBLOG_PORTABLE" ]
+            },
+            "dependencies": {
+                "Microsoft.NETCore": "5.0.0",
+                "Microsoft.NETCore.Portable.Compatibility": "1.0.0"
+            },
+            "imports": "portable-net452+win81"
+        }
+    },
+    "dependencies": {
+        "LibLog": "4.2.4"
+    }
+}

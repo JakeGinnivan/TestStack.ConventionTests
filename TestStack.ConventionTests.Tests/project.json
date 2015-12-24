@@ -1,0 +1,36 @@
+{
+    "version": "1.0.0-*",
+    "description": "TestStack.ConventionTests.Tests Class Library",
+    "authors": [ "Jake" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+    "dependencies": {
+        "xunit.core": "2.1.0",
+        "xunit.abstractions": "2.0.0",
+        "xunit.assert": "2.1.0",
+        "xunit.extensibility.core": "2.1.0",
+        "xunit.extensibility.execution": "2.1.0",
+        "xunit.runner.visualstudio": "2.1.0",
+        "TestStack.ConventionTests": "1.0.0-*",
+        "TestAssembly": "1.0.0-*"
+    },
+    "commands": {
+        "test": ""
+    },
+    "frameworks": {
+        "net45": {
+            "dependencies": {
+                "ApprovalUtilities": "3.0.10",
+                "ApprovalTests": "3.0.10"
+            }
+        },
+        "dotnet": {
+            "imports": "portable-net452+win81",
+            "dependencies": {
+                "Microsoft.NETCore": "5.0.0",
+                "Microsoft.NETCore.Portable.Compatibility": "1.0.0"
+            }
+        }
+    }
+}

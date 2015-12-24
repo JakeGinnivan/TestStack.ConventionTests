@@ -3,7 +3,6 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Linq;
     using System.Reflection;
 
@@ -58,7 +57,11 @@
         /// <param name="predicate">A function to test each type for a condition.</param>
         public static Types InAssemblyOf(Type type, Func<Type, bool> predicate)
         {
+#if DOTNET
+            return InAssembly(type.GetTypeInfo().Assembly, predicate);
+#else
             return InAssembly(type.Assembly, predicate);
+#endif
         }
 
         /// <summary>
@@ -92,7 +95,11 @@
         /// <param name="predicate">A function to test each type for a condition.</param>
         public static Types InAssemblyOf(Type type, string descriptionOfTypes, Func<Type, bool> predicate)
         {
+#if DOTNET
+            return InAssembly(type.GetTypeInfo().Assembly, descriptionOfTypes, predicate);
+#else
             return InAssembly(type.Assembly, descriptionOfTypes, predicate);
+#endif
         }
 
         /// <summary>
@@ -134,7 +141,11 @@
         /// <param name="excludeCompilerGeneratedTypes">Compiler generated types will be excluded if set to <c>true</c>.</param>
         public static Types InAssemblyOf(Type type, bool excludeCompilerGeneratedTypes = true)
         {
+#if DOTNET
+            return InAssembly(type.GetTypeInfo().Assembly, excludeCompilerGeneratedTypes);
+#else
             return InAssembly(type.Assembly, excludeCompilerGeneratedTypes);
+#endif
         }
 
         /// <summary>
@@ -145,20 +156,6 @@
         public static Types InAssembly(Assembly assembly, bool excludeCompilerGeneratedTypes = true)
         {
             return InAssembly(assembly, GetAssemblyName(assembly), excludeCompilerGeneratedTypes);
-        }
-
-        /// <summary>
-        /// Gets an optionally filtered list of types from the assembly of the specified
-        /// type, <typeparam name="T" />, using the specified <param name="types" /> filter.
-        /// </summary>
-        /// <typeparam name="T">A type residing in the assembly to get types from.</typeparam>
-        /// <param name="descriptionOfTypes">A description of the matched types.</param>
-        /// <param name="types">A function to filter or add matched types.</param>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        [Obsolete("This method is obsolete and should not be used. Use the overload with a predicate instead.")]
-        public static Types InAssemblyOf<T>(string descriptionOfTypes, Func<IEnumerable<Type>, IEnumerable<Type>> types)
-        {
-            return InCollection(types(typeof(T).Assembly.GetTypes()), descriptionOfTypes);
         }
 
         /// <summary>
@@ -180,7 +177,11 @@
         /// <param name="excludeCompilerGeneratedTypes">Compiler generated types will be excluded if set to <c>true</c>.</param>
         public static Types InAssemblyOf(Type type, string descriptionOfTypes, bool excludeCompilerGeneratedTypes = true)
         {
+#if DOTNET
+            return InAssembly(type.GetTypeInfo().Assembly, descriptionOfTypes, excludeCompilerGeneratedTypes);
+#else
             return InAssembly(type.Assembly, descriptionOfTypes, excludeCompilerGeneratedTypes);
+#endif
         }
 
         /// <summary>

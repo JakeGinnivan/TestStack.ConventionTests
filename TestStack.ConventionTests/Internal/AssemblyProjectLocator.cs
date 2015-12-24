@@ -1,4 +1,5 @@
-﻿namespace TestStack.ConventionTests.Internal
+﻿#if !DOTNET
+namespace TestStack.ConventionTests.Internal
 {
     using System;
     using System.Reflection;
@@ -41,3 +42,4 @@
         }
     }
 }
+#endif

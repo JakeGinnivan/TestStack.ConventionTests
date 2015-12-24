@@ -1,4 +1,5 @@
-﻿namespace TestStack.ConventionTests.Internal
+﻿#if !DOTNET
+namespace TestStack.ConventionTests.Internal
 {
     using ApprovalTests;
     using ApprovalTests.Core;
@@ -33,3 +34,4 @@
         }
     }
 }
+#endif

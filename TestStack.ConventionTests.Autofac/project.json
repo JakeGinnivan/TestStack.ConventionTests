@@ -1,0 +1,30 @@
+﻿{
+    "version": "1.0.0-*",
+    "description": "TestStack.ConventionTests.Autofac Class Library",
+    "authors": [ "Jake" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+    "supports": {
+        "net46.app": { },
+        "uwp.10.0.app": { },
+        "dnxcore50.app": { }
+    },
+    "dependencies": {
+    },
+    "frameworks": {
+        "net4": {
+            "dependencies": {
+                "Autofac": "3.5.2"
+            }
+        },
+        "dotnet": {
+            "dependencies": {
+                "Microsoft.NETCore": "5.0.0",
+                "Microsoft.NETCore.Portable.Compatibility": "1.0.0",
+                "Autofac": "4.0.0-rc1-177"
+            },
+            "imports": "portable-net452+win81"
+        }
+    }
+}

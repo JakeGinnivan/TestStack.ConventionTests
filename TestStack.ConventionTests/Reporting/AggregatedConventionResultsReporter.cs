@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Reflection;
     using TestStack.ConventionTests.Internal;
 
     /// <summary>
@@ -24,11 +23,15 @@
         {
             get
             {
-                // http://stackoverflow.com/questions/52797/c-how-do-i-get-the-path-of-the-assembly-the-code-is-in#answer-283917
-                var codeBase = Assembly.GetExecutingAssembly().CodeBase;
+#if DOTNET
+                return AppContext.BaseDirectory;
+#else
+    // http://stackoverflow.com/questions/52797/c-how-do-i-get-the-path-of-the-assembly-the-code-is-in#answer-283917
+                var codeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
                 var uri = new UriBuilder(codeBase);
                 var path = Uri.UnescapeDataString(uri.Path);
                 return Path.GetDirectoryName(path);
+#endif
             }
         }
 

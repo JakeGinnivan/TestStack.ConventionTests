@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0-*",
+  "description": "TestAssembly",
+  "authors": [
+    "Jake"
+  ],
+  "tags": [
+    ""
+  ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "supports": {
+    "net46.app": {},
+    "uwp.10.0.app": {},
+    "dnxcore50.app": {}
+  },
+  "frameworks": {
+    "dotnet": {
+      "dependencies": {
+        "Microsoft.NETCore": "5.0.0",
+        "Microsoft.NETCore.Portable.Compatibility": "1.0.0"
+      },
+      "imports": "portable-net452+win81"
+    },
+    "net40": {
+      "dependencies": {
+        "Microsoft.AspNet.Mvc": "4.0.40804.0",
+        "Microsoft.AspNet.Razor": "2.0.20710.0",
+        "Microsoft.AspNet.WebApi": "4.0.30506.0",
+        "Microsoft.AspNet.WebApi.Client": "4.0.30506.0",
+        "Microsoft.AspNet.WebApi.Core": "4.0.30506.0",
+        "Microsoft.AspNet.WebApi.WebHost": "4.0.30506.0",
+        "Microsoft.AspNet.WebPages": "2.0.20710.0",
+        "Microsoft.Net.Http": "2.0.20710.0",
+        "Microsoft.Web.Infrastructure": "1.0.0.0",
+        "Newtonsoft.Json": "4.5.11",
+        "System.Net.Http.Formatting": "1.0.0-*",
+        "System.Net.Http.WebRequest": "1.0.0-*",
+        "System.Web.Helpers": "1.0.0-*",
+        "System.Web.Http": "1.0.0-*",
+        "System.Web.Http.WebHost": "1.0.0-*",
+        "System.Web.Mvc": "1.0.0-*",
+        "System.Web.Razor": "1.0.0-*",
+        "System.Web.WebPages.Deployment": "1.0.0-*",
+        "System.Web.WebPages": "1.0.0-*",
+        "System.Web.WebPages.Razor": "1.0.0-*"
+      }
+    }
+  }
+}

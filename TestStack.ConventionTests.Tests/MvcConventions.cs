@@ -1,17 +1,15 @@
-﻿namespace TestStack.ConventionTests.Tests
+﻿#if NET45
+namespace TestStack.ConventionTests.Tests
 {
     using ApprovalTests;
     using ApprovalTests.Reporters;
-    using NUnit.Framework;
-    using TestAssembly.Controllers;
     using TestStack.ConventionTests.ConventionData;
-    using TestStack.ConventionTests.Conventions;
+    using Xunit;
 
-    [TestFixture]
-    [UseReporter(typeof(DiffReporter))] 
+    [UseReporter(typeof(DiffReporter))]
     public class MvcConventions
     {
-        [Test]
+        [Fact]
         public void controller_conventions()
         {
             var types = Types.InAssemblyOf<TestController>();
@@ -21,7 +19,7 @@
             Approvals.Verify(ex.Message);
         }
 
-        [Test]
+        [Fact]
         public void api_controller_conventions()
         {
             var types = Types.InAssemblyOf<TestController>();
@@ -29,6 +27,7 @@
 
             var ex = Assert.Throws<ConventionFailedException>(() => Convention.Is(convention, types));
             Approvals.Verify(ex.Message);
-        } 
+        }
     }
 }
+#endif

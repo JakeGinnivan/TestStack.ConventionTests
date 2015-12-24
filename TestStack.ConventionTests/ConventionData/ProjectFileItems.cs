@@ -1,4 +1,5 @@
-﻿namespace TestStack.ConventionTests.ConventionData
+﻿#if !DOTNET
+namespace TestStack.ConventionTests.ConventionData
 {
     using System.Linq;
     using System.Reflection;
@@ -36,3 +37,4 @@
         }
     }
 }
+#endif

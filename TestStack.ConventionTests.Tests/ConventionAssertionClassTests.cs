@@ -1,13 +1,13 @@
-﻿namespace TestStack.ConventionTests.Tests
+﻿#if NET45
+namespace TestStack.ConventionTests.Tests
 {
     using ApprovalTests.Reporters;
-    using NUnit.Framework;
+    using Xunit;
 
-    [TestFixture]
     [UseReporter(typeof(QuietReporter))] //NOTE: Can we take care of this in IsWithApprovedExceptions?
     public class ConventionAssertionClassTests
     {
-        [Test]
+        [Fact]
         public void approval_mismatch()
         {
             //NOTE Do not approve any changes to this test
@@ -39,3 +39,4 @@
         }
     }
 }
+#endif

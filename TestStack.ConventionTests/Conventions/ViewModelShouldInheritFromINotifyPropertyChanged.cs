@@ -3,6 +3,7 @@
     using System;
     using System.ComponentModel;
     using System.Linq;
+    using System.Reflection;
     using TestStack.ConventionTests.ConventionData;
 
     public class ViewModelShouldInheritFromINotifyPropertyChanged : IConvention<Types>
@@ -17,9 +18,13 @@
         public void Execute(Types data, IConventionResultContext result)
         {
             var notifyPropertyChanged = typeof (INotifyPropertyChanged);
-            var failingData = data.TypesToVerify.Where(t => t.Name.EndsWith(viewModelSuffix, StringComparison.InvariantCultureIgnoreCase))
+#if DOTNET
+            var failingData = data.TypesToVerify.Where(t => t.Name.EndsWith(viewModelSuffix, StringComparison.OrdinalIgnoreCase))
+                .Where(t => !notifyPropertyChanged.GetTypeInfo().IsAssignableFrom(t.GetTypeInfo()));
+#else
+            var failingData = data.TypesToVerify.Where(t => t.Name.EndsWith(viewModelSuffix, StringComparison.OrdinalIgnoreCase))
                 .Where(t => !notifyPropertyChanged.IsAssignableFrom(t));
-
+#endif
             result.Is(string.Format("ViewModels (types named *{0}) should inherit from INotifyPropertyChanged", viewModelSuffix),
                 failingData);
         }

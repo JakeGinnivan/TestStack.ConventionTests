@@ -1,4 +1,5 @@
-﻿namespace TestStack.ConventionTests.Tests
+﻿#if net45
+namespace TestStack.ConventionTests.Tests
 {
     using System.Xml.Linq;
     using ApprovalTests;
@@ -124,3 +125,4 @@
         }
     }
 }
+#endif
